@@ -3,3 +3,4 @@ packages/crb-ui/storybook-static
 packages/crb-ui/node_modules
 packages/sample-crb-ui/node_modules
 packages/sample-crb-ui/.yalc
+packages/sample-crb-ui/yalc.lock

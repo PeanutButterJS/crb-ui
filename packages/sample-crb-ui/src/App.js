@@ -1,4 +1,4 @@
-import { Button } from "crb-ui";
+import { Button, Link } from "crb-ui";
 import styled from "styled-components";
 import "./App.css";
 
@@ -7,7 +7,18 @@ const B = styled(Button)`
 `;
 
 function App() {
-  return <B>hey</B>;
+  return (
+    <>
+      <B>hey there</B> <B>hey there</B>
+      <B>hey there</B> <B>hey there</B>
+      <B>hey there</B> <B>hey there</B>
+      <B>hey there</B> <B>hey there</B>
+      <B>hey there</B> <B>hey there</B>
+      <B>hey there</B> <B>hey there</B>
+      <B>hey there</B> <B>hey there</B>
+      <Link>hey there</Link>
+    </>
+  );
 }
 
 export default App;

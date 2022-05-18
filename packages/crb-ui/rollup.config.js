@@ -44,7 +44,8 @@ export default [
     ],
     output: [
       { file: packageJson.main, format: 'cjs' },
-      { file: packageJson.module, format: 'es' }
+      /* { file: packageJson.module, format: 'es' }, */
+      { sourcemap: true, dir: 'lib', preserveModules: true, format: 'esm' }
     ]
     /*  output: {
       dir: './',
