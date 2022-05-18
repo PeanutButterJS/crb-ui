@@ -1,0 +1,8 @@
+{
+  "version": "v1",
+  "packages": {
+    "crb-ui": {
+      "signature": "eea9e97a01ec18e711399dbac096c106"
+    }
+  }
+}
