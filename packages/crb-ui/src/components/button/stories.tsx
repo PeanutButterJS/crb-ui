@@ -8,7 +8,6 @@ import { theme } from '../../theme';
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
 `;
 const ItemWrapper = styled.div`
@@ -57,6 +56,29 @@ export const Secondary: Story<ButtonProps> = () => (
     <ItemWrapper>
       <Button secondary>
         <Icon url={mdiAccount} color={theme.colors.blue} />
+      </Button>
+    </ItemWrapper>
+  </Container>
+);
+
+export const Danger: Story<ButtonProps> = () => (
+  <Container>
+    <ItemWrapper>
+      <Button danger>Danger</Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button disabled danger>
+        Disabled
+      </Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button isLoading danger>
+        Loader
+      </Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button danger>
+        <Icon url={mdiAccount} color={theme.colors.alert} />
       </Button>
     </ItemWrapper>
   </Container>

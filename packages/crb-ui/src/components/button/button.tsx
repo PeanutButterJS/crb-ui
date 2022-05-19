@@ -9,6 +9,7 @@ export interface ButtonProps {
   disabled?: boolean;
   isLoading?: boolean;
   secondary?: boolean;
+  danger?: boolean;
 }
 
 const StyledButton = styled.button<ButtonProps>`
@@ -45,6 +46,13 @@ const StyledButton = styled.button<ButtonProps>`
         color: ${theme.colors.blue};
       `;
     }
+
+    if (props.danger) {
+      return css`
+        background-color: ${theme.colors.lightAlert};
+        color: ${theme.colors.alert};
+      `;
+    }
   }}
 
   ${props => {
@@ -62,15 +70,32 @@ const StyledButton = styled.button<ButtonProps>`
   }}
 `;
 
-export const Button = ({ children, className, disabled, isLoading, secondary }: ButtonProps) => {
+export const Button = ({
+  children,
+  className,
+  disabled,
+  isLoading,
+  secondary,
+  danger
+}: ButtonProps) => {
+  const getLoaderColor = () => {
+    if (secondary) {
+      return theme.colors.blue;
+    }
+    if (danger) {
+      return theme.colors.alert;
+    }
+    return theme.colors.white;
+  };
   return (
     <StyledButton
       className={className}
       disabled={disabled}
       isLoading={isLoading}
       secondary={secondary}
+      danger={danger}
     >
-      {isLoading && <Loader color={secondary ? theme.colors.blue : theme.colors.white} />}
+      {isLoading && <Loader color={getLoaderColor()} />}
       {!isLoading && children}
     </StyledButton>
   );
