@@ -1,14 +1,7 @@
-import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { Loader } from '../loader/loader';
 import { theme } from '../../theme';
-
-export type ButtonProps = {
-  children: ReactNode;
-  className?: string;
-  disabled?: boolean;
-  isLoading?: boolean;
-};
+import { ButtonProps } from './button.types';
 
 const StyledButton = styled.button<{ isLoading?: boolean }>`
   background-color: ${theme.colors.blue};
@@ -16,7 +9,7 @@ const StyledButton = styled.button<{ isLoading?: boolean }>`
   border-radius: 10px;
   border: none;
   padding: 0 30px;
-  color: #ffffff;
+  color: ${theme.colors.white};
   font-size: 18px;
   display: flex;
   flex-direction: column;

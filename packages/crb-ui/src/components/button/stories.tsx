@@ -1,4 +1,5 @@
-import { Button, ButtonProps } from './button';
+import { Button } from './button';
+import { ButtonProps } from './button.types';
 import { Story, Meta } from '@storybook/react';
 import styled from 'styled-components';
 
