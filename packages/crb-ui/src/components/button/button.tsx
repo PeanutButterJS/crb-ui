@@ -1,9 +1,17 @@
 import styled, { css } from 'styled-components';
 import { Loader } from '../loader/loader';
 import { theme } from '../../theme';
-import { ButtonProps } from './button.types';
+import { ReactNode } from 'react';
 
-const StyledButton = styled.button<{ isLoading?: boolean }>`
+export interface ButtonProps {
+  children: ReactNode;
+  className?: string;
+  disabled?: boolean;
+  isLoading?: boolean;
+  secondary?: boolean;
+}
+
+const StyledButton = styled.button<ButtonProps>`
   background-color: ${theme.colors.blue};
   height: 60px;
   border-radius: 10px;
@@ -31,6 +39,15 @@ const StyledButton = styled.button<{ isLoading?: boolean }>`
   }
 
   ${props => {
+    if (props.secondary) {
+      return css`
+        background-color: ${theme.colors.lightGray};
+        color: ${theme.colors.blue};
+      `;
+    }
+  }}
+
+  ${props => {
     if (props.isLoading) {
       return css`
         padding: 0 50px;
@@ -45,10 +62,15 @@ const StyledButton = styled.button<{ isLoading?: boolean }>`
   }}
 `;
 
-export const Button = ({ children, className, disabled, isLoading }: ButtonProps) => {
+export const Button = ({ children, className, disabled, isLoading, secondary }: ButtonProps) => {
   return (
-    <StyledButton className={className} disabled={disabled} isLoading={isLoading}>
-      {isLoading && <Loader color={'white'} />}
+    <StyledButton
+      className={className}
+      disabled={disabled}
+      isLoading={isLoading}
+      secondary={secondary}
+    >
+      {isLoading && <Loader color={secondary ? theme.colors.blue : theme.colors.white} />}
       {!isLoading && children}
     </StyledButton>
   );

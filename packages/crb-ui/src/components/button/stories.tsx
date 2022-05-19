@@ -1,7 +1,10 @@
 import { Button } from './button';
-import { ButtonProps } from './button.types';
+import { ButtonProps } from './button';
 import { Story, Meta } from '@storybook/react';
 import styled from 'styled-components';
+import { Icon } from '../icon/icon';
+import { mdiAccount } from '@mdi/js';
+import { theme } from '../../theme';
 
 const Container = styled.div`
   display: flex;
@@ -27,6 +30,34 @@ export const Primary: Story<ButtonProps> = () => (
     </ItemWrapper>
     <ItemWrapper>
       <Button isLoading>Loader</Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button>
+        <Icon url={mdiAccount} color={theme.colors.white} />
+      </Button>
+    </ItemWrapper>
+  </Container>
+);
+
+export const Secondary: Story<ButtonProps> = () => (
+  <Container>
+    <ItemWrapper>
+      <Button secondary>Secondary</Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button disabled secondary>
+        Disabled
+      </Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button isLoading secondary>
+        Loader
+      </Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button secondary>
+        <Icon url={mdiAccount} color={theme.colors.blue} />
+      </Button>
     </ItemWrapper>
   </Container>
 );

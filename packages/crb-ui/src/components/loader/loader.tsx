@@ -1,10 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 import { theme } from '../../theme';
 
-export type LoaderProps = {
+export interface LoaderProps {
   className?: string;
   color?: string;
-};
+}
 
 const dotPulseBefore = (color?: string) => keyframes`
 0% {
