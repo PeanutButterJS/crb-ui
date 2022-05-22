@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Loader } from '../loader/loader';
+import { Loader } from '../loaders/loader';
 import { theme } from '../../theme';
 import { ReactNode } from 'react';
 

@@ -2,6 +2,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import babel from '@rollup/plugin-babel';
+import gzipPlugin from 'rollup-plugin-gzip';
 import del from 'rollup-plugin-delete';
 import dts from 'rollup-plugin-dts';
 import { terser } from 'rollup-plugin-terser';
@@ -36,11 +37,11 @@ export default [
         exclude: '**/node_modules/**',
         extensions: ['.js', '.jsx', '.ts', '.tsx']
       }),
-      terser()
+      terser(),
+      gzipPlugin()
     ],
     output: [
       { file: packageJson.main, format: 'cjs' },
-      /* { file: packageJson.module, format: 'es' }, */
       { sourcemap: true, dir: 'lib', preserveModules: true, format: 'esm' }
     ]
   },
