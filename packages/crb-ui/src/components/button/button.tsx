@@ -4,7 +4,7 @@ import { theme } from '../../theme';
 import { ReactNode } from 'react';
 
 export interface ButtonProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   disabled?: boolean;
   isLoading?: boolean;
@@ -12,6 +12,7 @@ export interface ButtonProps {
   danger?: boolean;
   small?: boolean;
   light?: boolean;
+  icon?: ReactNode;
 }
 
 const StyledButton = styled.button<ButtonProps>`
@@ -88,6 +89,16 @@ const StyledButton = styled.button<ButtonProps>`
       `;
     }
   }}
+
+  ${props => {
+    if (props.icon) {
+      return css`
+        width: ${props.small ? '40px' : '60px'};
+        padding: 0;
+        border-radius: ${props.small ? '10px' : '27px'};
+      `;
+    }
+  }}
 `;
 
 export const Button = ({
@@ -98,7 +109,8 @@ export const Button = ({
   secondary,
   danger,
   small,
-  light
+  light,
+  icon
 }: ButtonProps) => {
   const getLoaderColor = () => {
     if (secondary || light) {
@@ -118,9 +130,11 @@ export const Button = ({
       danger={danger}
       small={small}
       light={light}
+      icon={!!icon}
     >
       {isLoading && <Loader color={getLoaderColor()} small={small} />}
-      {!isLoading && children}
+      {!isLoading && icon}
+      {!isLoading && !icon && children}
     </StyledButton>
   );
 };

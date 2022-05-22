@@ -1,5 +1,4 @@
-import { Button } from './button';
-import { ButtonProps } from './button';
+import { Button, ButtonProps } from './button';
 import { Story, Meta } from '@storybook/react';
 import styled from 'styled-components';
 import { Icon } from '../icon/icon';
@@ -12,6 +11,10 @@ const Container = styled.div`
 `;
 const ItemWrapper = styled.div`
   margin: 10px;
+`;
+const ColContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export default {
@@ -135,4 +138,35 @@ export const Light: Story<ButtonProps> = () => (
       </Button>
     </ItemWrapper>
   </Container>
+);
+
+export const IconButton: Story<ButtonProps> = () => (
+  <ColContainer>
+    <Container>
+      <ItemWrapper>
+        <Button icon={<Icon url={mdiAccount} color={theme.colors.white} />} />
+      </ItemWrapper>
+      <ItemWrapper>
+        <Button disabled icon={<Icon url={mdiAccount} color={theme.colors.white} />} />
+      </ItemWrapper>
+      <ItemWrapper>
+        <Button danger icon={<Icon url={mdiAccount} color={theme.colors.alert} />}></Button>
+      </ItemWrapper>
+    </Container>
+
+    <Container>
+      <ItemWrapper>
+        <Button icon={<Icon url={mdiAccount} color={theme.colors.white} />} small />
+      </ItemWrapper>
+      <ItemWrapper>
+        <Button disabled icon={<Icon url={mdiAccount} color={theme.colors.white} />} small />
+      </ItemWrapper>
+      <ItemWrapper>
+        <Button danger icon={<Icon url={mdiAccount} color={theme.colors.alert} />} small />
+      </ItemWrapper>
+      <ItemWrapper>
+        <Button small light icon={<Icon url={mdiAccount} color={theme.colors.blue} />} />
+      </ItemWrapper>
+    </Container>
+  </ColContainer>
 );
