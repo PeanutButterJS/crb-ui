@@ -1,6 +1,7 @@
 export type Theme = {
   colors: {
     blue: string;
+    lightBlue: string;
     white: string;
     lightGray: string;
     alert: string;
@@ -16,6 +17,7 @@ export type Theme = {
 export const theme: Theme = {
   colors: {
     blue: '#0071B7',
+    lightBlue: '#03A0EF',
     white: 'white',
     lightGray: '#EBF0F2',
     lightAlert: '#FFF7F9',

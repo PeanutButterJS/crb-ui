@@ -16,16 +16,18 @@ export interface ButtonProps {
 }
 
 const StyledButton = styled.button<ButtonProps>`
+  outline: none;
+  border: none;
+  transition: all 0.2s ease-in-out;
   background-color: ${theme.colors.blue};
+  box-sizing: border-box;
   font: ${theme.fonts.medium};
   height: 60px;
   border-radius: 10px;
-  border: none;
   padding: 0 30px;
   color: ${theme.colors.white};
   font-size: 18px;
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -42,6 +44,9 @@ const StyledButton = styled.button<ButtonProps>`
     box-shadow: none;
     cursor: default;
   }
+  :focus {
+    box-shadow: 0px 0px 0px 2px rgba(3, 160, 239, 0.5);
+  }
 
   ${props => {
     if (props.light) {
@@ -49,12 +54,18 @@ const StyledButton = styled.button<ButtonProps>`
         background-color: transparent;
         color: ${theme.colors.text};
         border: 1px solid rgba(0, 0, 0, 0.1);
+        :focus {
+          box-shadow: 0px 0px 0px 2px rgba(3, 160, 239, 0.5);
+        }
       `;
     }
     if (props.secondary) {
       return css`
         background-color: ${theme.colors.lightGray};
         color: ${theme.colors.blue};
+        :focus {
+          box-shadow: 0px 0px 0px 2px rgba(3, 160, 239, 0.5);
+        }
       `;
     }
 
@@ -62,6 +73,9 @@ const StyledButton = styled.button<ButtonProps>`
       return css`
         background-color: ${theme.colors.lightAlert};
         color: ${theme.colors.alert};
+        :focus {
+          box-shadow: 0px 0px 0px 2px rgba(204, 31, 78, 0.5);
+        }
       `;
     }
   }}
