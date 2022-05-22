@@ -5,6 +5,7 @@ export type Theme = {
     lightGray: string;
     alert: string;
     lightAlert: string;
+    text: string;
   };
   fonts: {
     medium: string;
@@ -18,7 +19,8 @@ export const theme: Theme = {
     white: 'white',
     lightGray: '#EBF0F2',
     lightAlert: '#FFF7F9',
-    alert: '#CC1F4E'
+    alert: '#CC1F4E',
+    text: '#1F0040'
   },
   fonts: {
     medium: `normal normal 500 16px "Fira Sans", sans-serif`,

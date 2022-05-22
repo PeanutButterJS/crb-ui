@@ -111,3 +111,28 @@ export const Small: Story<ButtonProps> = () => (
     </ItemWrapper>
   </Container>
 );
+export const Light: Story<ButtonProps> = () => (
+  <Container>
+    <ItemWrapper>
+      <Button light small>
+        Light Small
+      </Button>
+    </ItemWrapper>
+
+    <ItemWrapper>
+      <Button disabled light small>
+        Disabled
+      </Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button isLoading light small>
+        Loader
+      </Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button small light>
+        <Icon url={mdiAccount} color={theme.colors.blue} />
+      </Button>
+    </ItemWrapper>
+  </Container>
+);

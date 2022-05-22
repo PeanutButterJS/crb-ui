@@ -11,8 +11,8 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "lint": "eslint --fix ./src/**/*",
-    "build:roolup": "npm run lint && rollup -c && yalc push",
-    "dev": "npm-watch build:roolup",
+    "build": "npm run lint && rollup -c && yalc push",
+    "dev": "npm-watch build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -80,7 +80,7 @@
       "patterns": [
         "src"
       ],
-      "extensions": "js,jsx,ts,tsx,css"
+      "extensions": "js,jsx,ts,tsx"
     }
   }
 }
