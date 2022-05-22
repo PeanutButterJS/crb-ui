@@ -26,6 +26,9 @@ export const Loader: Story<LoaderProps> = () => (
     <ItemWrapper>
       <DotLoader color={theme.colors.alert} />
     </ItemWrapper>
+    <ItemWrapper>
+      <DotLoader small />
+    </ItemWrapper>
   </Container>
 );
 

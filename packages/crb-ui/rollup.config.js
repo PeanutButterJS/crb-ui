@@ -23,6 +23,7 @@ export default [
       // Leave out third-party dependencies (listed under `package.json`'s `dependencies` option) from the bundled outputs. For example, this library hosts components written with React. We can assume that developers using this library will already have React imported in their applications. And so, why include React in the bundled output and add unnecessary bloat?
       /*  externals({ deps: true }), */
       peerDepsExternal(),
+
       // Find third-party modules within `node_modules` with any one of the following file extensions: `.js`, `.ts` and `.tsx`.
       resolve({
         extensions: ['.js', '.ts', '.tsx']
@@ -38,6 +39,7 @@ export default [
         extensions: ['.js', '.jsx', '.ts', '.tsx']
       }),
       terser(),
+
       gzipPlugin()
     ],
     output: [

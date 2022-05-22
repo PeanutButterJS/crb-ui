@@ -6,6 +6,10 @@ export type Theme = {
     alert: string;
     lightAlert: string;
   };
+  fonts: {
+    medium: string;
+    extraBold: string;
+  };
 };
 
 export const theme: Theme = {
@@ -15,5 +19,9 @@ export const theme: Theme = {
     lightGray: '#EBF0F2',
     lightAlert: '#FFF7F9',
     alert: '#CC1F4E'
+  },
+  fonts: {
+    medium: `normal normal 500 16px "Fira Sans", sans-serif`,
+    extraBold: `normal normal 800 16px "Fira Sans", sans-serif`
   }
 };

@@ -1,9 +1,10 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { theme } from '../../theme';
 
 export interface LoaderProps {
   className?: string;
   color?: string;
+  small?: boolean;
 }
 
 const dotPulseBefore = (color?: string) => keyframes`
@@ -82,6 +83,26 @@ export const Loader = styled.div<LoaderProps>`
     animation: ${props => dotPulseAfter(props.color)} 1.5s infinite linear;
     animation-delay: 0.5s;
   }
+
+  ${props => {
+    if (props.small) {
+      return css`
+        width: 5px;
+        height: 5px;
+        :before {
+          left: 5px;
+          width: 5px;
+          height: 5px;
+        }
+
+        :after {
+          left: -5px;
+          width: 5px;
+          height: 5px;
+        }
+      `;
+    }
+  }}
 `;
 
 export default Loader;

@@ -83,3 +83,31 @@ export const Danger: Story<ButtonProps> = () => (
     </ItemWrapper>
   </Container>
 );
+
+export const Small: Story<ButtonProps> = () => (
+  <Container>
+    <ItemWrapper>
+      <Button small>Small</Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button small secondary>
+        Small Secondary
+      </Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button disabled small>
+        Disabled
+      </Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button isLoading small>
+        Loader
+      </Button>
+    </ItemWrapper>
+    <ItemWrapper>
+      <Button small>
+        <Icon url={mdiAccount} color={theme.colors.white} />
+      </Button>
+    </ItemWrapper>
+  </Container>
+);

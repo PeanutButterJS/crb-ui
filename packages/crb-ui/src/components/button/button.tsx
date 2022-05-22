@@ -10,10 +10,12 @@ export interface ButtonProps {
   isLoading?: boolean;
   secondary?: boolean;
   danger?: boolean;
+  small?: boolean;
 }
 
 const StyledButton = styled.button<ButtonProps>`
   background-color: ${theme.colors.blue};
+  font: ${theme.fonts.medium};
   height: 60px;
   border-radius: 10px;
   border: none;
@@ -56,9 +58,19 @@ const StyledButton = styled.button<ButtonProps>`
   }}
 
   ${props => {
+    if (props.small) {
+      return css`
+        height: 40px;
+        padding: 0 20px;
+        font-size: 16px;
+      `;
+    }
+  }}
+
+  ${props => {
     if (props.isLoading) {
       return css`
-        padding: 0 50px;
+        padding: 0 35px;
         cursor: default;
         box-shadow: none;
         :hover {
@@ -76,7 +88,8 @@ export const Button = ({
   disabled,
   isLoading,
   secondary,
-  danger
+  danger,
+  small
 }: ButtonProps) => {
   const getLoaderColor = () => {
     if (secondary) {
@@ -94,8 +107,9 @@ export const Button = ({
       isLoading={isLoading}
       secondary={secondary}
       danger={danger}
+      small={small}
     >
-      {isLoading && <Loader color={getLoaderColor()} />}
+      {isLoading && <Loader color={getLoaderColor()} small={small} />}
       {!isLoading && children}
     </StyledButton>
   );
