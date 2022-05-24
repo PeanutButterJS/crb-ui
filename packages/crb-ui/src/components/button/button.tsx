@@ -13,12 +13,13 @@ export interface ButtonProps {
   small?: boolean;
   light?: boolean;
   icon?: ReactNode;
+  onClick?: () => void;
 }
 
 const StyledButton = styled.button<ButtonProps>`
   outline: none;
   border: none;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s;
   background-color: ${theme.colors.blue};
   box-sizing: border-box;
   font: ${theme.fonts.medium};
@@ -124,7 +125,8 @@ export const Button = ({
   danger,
   small,
   light,
-  icon
+  icon,
+  onClick
 }: ButtonProps) => {
   const getLoaderColor = () => {
     if (secondary || light) {
@@ -145,6 +147,7 @@ export const Button = ({
       small={small}
       light={light}
       icon={!!icon}
+      onClick={onClick}
     >
       {isLoading && <Loader color={getLoaderColor()} small={small} />}
       {!isLoading && icon}

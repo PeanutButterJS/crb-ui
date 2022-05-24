@@ -26,6 +26,18 @@ Insert the following link tags into the head of index.html.
 </head>
 ```
 
+Many of the components rely on Ant Design.
+
+Install antd
+```bash
+npm install antd
+```
+Insert the following import in index.tsx
+
+```javascript
+import 'antd/dist/antd.css';
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

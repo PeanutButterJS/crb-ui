@@ -25,7 +25,13 @@ export default {
 export const Primary: Story<ButtonProps> = () => (
   <Container>
     <ItemWrapper>
-      <Button>Primary</Button>
+      <Button
+        onClick={() => {
+          alert('alert');
+        }}
+      >
+        Primary Alert
+      </Button>
     </ItemWrapper>
     <ItemWrapper>
       <Button disabled>Disabled</Button>
