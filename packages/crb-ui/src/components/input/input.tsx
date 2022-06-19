@@ -1,4 +1,5 @@
 import { Input as AntInput } from 'antd';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { theme } from '../../theme';
 
@@ -6,6 +7,7 @@ const StyledInput = styled(AntInput)`
   height: 60px;
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 
   :hover {
     border-color: rgba(0, 0, 0, 0.1);
@@ -18,10 +20,16 @@ const StyledInput = styled(AntInput)`
 
 export interface InputProps {
   placeholder?: string;
+  value?: string;
+  id: string;
+  onChange?: (val: any) => void;
 }
 
-export const Input = ({ placeholder }: InputProps) => {
-  return <StyledInput placeholder={placeholder} />;
+export const Input = ({ placeholder, value, onChange, id }: InputProps) => {
+  useEffect(() => {
+    console.log(value);
+  }, [value]);
+  return <StyledInput placeholder={placeholder} value={value || ''} onChange={onChange} />;
 };
 
 export default Input;

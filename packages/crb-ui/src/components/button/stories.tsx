@@ -1,4 +1,5 @@
 import { Button, ButtonProps } from './button';
+import { CrbUiProvider } from '../crb-ui-provider/crb-ui-provider';
 import { Story, Meta } from '@storybook/react';
 import styled from 'styled-components';
 import { Icon } from '../icon/icon';
@@ -23,28 +24,30 @@ export default {
 } as Meta;
 
 export const Primary: Story<ButtonProps> = () => (
-  <Container>
-    <ItemWrapper>
-      <Button
-        onClick={() => {
-          alert('alert');
-        }}
-      >
-        Primary Alert
-      </Button>
-    </ItemWrapper>
-    <ItemWrapper>
-      <Button disabled>Disabled</Button>
-    </ItemWrapper>
-    <ItemWrapper>
-      <Button isLoading>Loader</Button>
-    </ItemWrapper>
-    <ItemWrapper>
-      <Button>
-        <Icon url={mdiAccount} color={theme.colors.white} />
-      </Button>
-    </ItemWrapper>
-  </Container>
+  <CrbUiProvider>
+    <Container>
+      <ItemWrapper>
+        <Button
+          onClick={() => {
+            alert('alert');
+          }}
+        >
+          Primary Alert
+        </Button>
+      </ItemWrapper>
+      <ItemWrapper>
+        <Button disabled>Disabled</Button>
+      </ItemWrapper>
+      <ItemWrapper>
+        <Button isLoading>Loader</Button>
+      </ItemWrapper>
+      <ItemWrapper>
+        <Button>
+          <Icon url={mdiAccount} color={theme.colors.white} />
+        </Button>
+      </ItemWrapper>
+    </Container>
+  </CrbUiProvider>
 );
 
 export const Secondary: Story<ButtonProps> = () => (

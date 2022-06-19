@@ -5,3 +5,5 @@ export * from './components/icon/icon';
 export * from './theme';
 export * from './packages/crb-auth';
 export * from './components/input/input';
+export * from './components/form';
+export * from './components/crb-ui-provider/crb-ui-provider';

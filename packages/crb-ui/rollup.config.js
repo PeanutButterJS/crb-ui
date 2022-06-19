@@ -4,6 +4,7 @@ import typescript from '@rollup/plugin-typescript';
 import babel from '@rollup/plugin-babel';
 import gzipPlugin from 'rollup-plugin-gzip';
 import del from 'rollup-plugin-delete';
+import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
 import { terser } from 'rollup-plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
@@ -26,7 +27,7 @@ export default [
 
       // Find third-party modules within `node_modules` with any one of the following file extensions: `.js`, `.ts` and `.tsx`.
       resolve({
-        extensions: ['.js', '.ts', '.tsx']
+        extensions: ['.js', '.ts', '.tsx', '.css']
       }),
       // Convert CommonJS modules into ES modules.
       commonjs(),
@@ -38,6 +39,7 @@ export default [
         exclude: '**/node_modules/**',
         extensions: ['.js', '.jsx', '.ts', '.tsx']
       }),
+      postcss(),
       terser(),
 
       gzipPlugin()

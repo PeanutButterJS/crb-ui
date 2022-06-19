@@ -1,4 +1,5 @@
 import 'antd/dist/antd.css';
+import 'normalize.css';
 import './styles.css';
 
 export const parameters = {
